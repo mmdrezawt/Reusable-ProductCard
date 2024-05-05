@@ -2,3 +2,25 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body {
+    background-color: #F3F4F6;
+}
+
+@layer base {
+    @font-face {
+        font-family: "Poppins Regular";
+        src: local("Poppins Regular"), url("./assets/fonts/poppins/Poppins-Regular.ttf");
+        font-display: swap;
+    }
+    @font-face {
+        font-family: "Poppins Medium";
+        src: local("Poppins Medium"), url("./assets/fonts/poppins/Poppins-Medium.ttf");
+        font-display: swap;
+    }
+    @font-face {
+        font-family: "Poppins SemiBold";
+        src: local("Poppins SemiBold"), url("./assets/fonts/poppins/Poppins-SemiBold.ttf");
+        font-display: swap;
+    }
+}
