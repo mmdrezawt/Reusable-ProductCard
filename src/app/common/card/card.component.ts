@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { ProductList } from 'src/app/model/product.model';
 
 @Component({
@@ -8,6 +8,19 @@ import { ProductList } from 'src/app/model/product.model';
 })
 export class CardComponent {
 
-  @Input() productList: ProductList[] = [];
+  @Input() itemList: ProductList[] = [];
+  @Output() addClicked = new EventEmitter<any>;
+  @Output() editClicked = new EventEmitter<any>;
+  @Output() deleteClicked = new EventEmitter<any>;
+
+  onAddClick() {
+    this.addClicked.emit();
+  }
+  onEditClick(item: ProductList) {
+    this.editClicked.emit(item);
+  }
+  onDeleteClick(item: ProductList) {
+    this.deleteClicked.emit(item);
+  }
 
 }

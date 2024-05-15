@@ -10,24 +10,24 @@
     </symbol>                          
 </svg>
 
-<div class="container my-10 grid grid-cols-4 gap-5">
-    <div *ngFor="let product of productList">
+<div class="container py-10 grid grid-cols-4 gap-5">
+    <div *ngFor="let item of itemList">
         <div class="bg-white p-5 shadow-normal rounded-2xl">
             <div class="mb-5">
-                <img src="{{ product.image }}" alt="{{ product.title }}" class="w-[260px] h-[260px] mx-auto" loading="lazy">
+                <img src="{{ item.image }}" alt="{{ item.title }}" class="w-[260px] h-[260px] mx-auto" loading="lazy">
             </div>
-            <h4 class="text-zinc-700 text-xl line-clamp-2 font-PoppinsMedium mb-2.5 min-h-14">{{ product.title }}</h4>
+            <h4 class="text-zinc-700 text-xl line-clamp-2 font-PoppinsMedium mb-2.5 min-h-14">{{ item.title }}</h4>
             <span class="inline-block text-teal-600 font-PoppinsSemiBold text-2xl mb-4">
-                {{ product.price | currency }}
+                {{ item.price | currency }}
             </span>
             <div class="flex">
                 <div class="flex gap-x-3">
-                    <button class="bg-gray-100 hover:bg-amber-600 w-9 h-9 rounded-full flex justify-center items-center group transition-all">
+                    <button class="bg-gray-100 hover:bg-amber-600 w-9 h-9 rounded-full flex justify-center items-center group transition-all" (click)="onEditClick(item)">
                         <svg class="text-gray-400 group-hover:text-white transition-all w-[22px] h-[22px]">
                             <use href="#pencil-square"></use>
                         </svg>
                     </button>
-                    <button class="bg-gray-100 hover:bg-red-600 w-9 h-9 rounded-full flex justify-center items-center group transition-all">
+                    <button class="bg-gray-100 hover:bg-red-600 w-9 h-9 rounded-full flex justify-center items-center group transition-all" (click)="onDeleteClick(item)">
                         <svg class="text-gray-400 group-hover:text-white transition-all w-[22px] h-[22px]">
                             <use href="#trash"></use>
                         </svg>
@@ -37,7 +37,7 @@
         </div>
     </div>
 </div>
-<button class="fixed bottom-10 right-10 w-14 h-14 flex justify-center items-center bg-teal-600 hover:bg-teal-700 transition-all rounded-lg shadow-sm">
+<button class="fixed bottom-10 right-10 w-14 h-14 flex justify-center items-center bg-teal-600 hover:bg-teal-700 transition-all rounded-lg shadow-sm" (click)="onAddClick()">
     <svg class="text-white w-8 h-8">
         <use href="#plus"></use>
     </svg>

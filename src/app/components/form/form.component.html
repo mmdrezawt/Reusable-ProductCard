@@ -1,0 +1,30 @@
+<svg class="hidden">
+    <symbol id="x-mark" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+    </symbol>      
+</svg>
+
+<div class="px-8 py-6">
+    <div class="flex justify-between items-center mb-4">
+        <h3 class="font-PoppinsMedium text-xl">Add a new product</h3>
+        <svg class="w-5 h-5 cursor-pointer" (click)="onCancel()">
+            <use href="#x-mark"></use>
+        </svg>
+    </div>
+    <form class="flex flex-col space-y-3 font-PoppinsMedium">
+        <input type="text" placeholder="Title" class="block w-full p-4 rounded-lg border border-gray-300 text-zinc-700 outline-none">
+        <input type="text" placeholder="Price" class="block w-full p-4 rounded-lg border border-gray-300 text-zinc-700 outline-none">
+        <input type="text" placeholder="Description" class="block w-full p-4 rounded-lg border border-gray-300 text-zinc-700 outline-none">
+        <select class="block w-full p-4 rounded-lg border border-gray-300 text-zinc-700">
+            <option value="" selected>Electronics</option>
+            <option value="">Jewelery</option>
+            <option value="">Men's clothing</option>
+            <option value="">Women's clothing</option>
+        </select>
+        <input type="text" placeholder="ImageUrl" class="block w-full p-4 rounded-lg border border-gray-300 text-zinc-700 outline-none">
+        <div class="flex gap-x-2">
+            <button class="px-7 py-3 bg-teal-600 hover:bg-teal-700 rounded-md text-white transition-all">Submit</button>
+            <span class="cursor-pointer px-7 py-3 bg-red-600 hover:bg-red-700 rounded-md text-white transition-all" (click)="onCancel()">Cancel</span>
+        </div>
+    </form>
+</div>

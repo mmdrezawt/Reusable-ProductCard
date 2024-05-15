@@ -1,1 +1,1 @@
-<app-card [productList]="productList"></app-card>
+<app-card [itemList]="productList" (addClicked)="onAddClick()" (editClicked)="onEditClick($event)" (deleteClicked)="onDeleteClick($event)"></app-card>
