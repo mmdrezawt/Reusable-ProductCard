@@ -11,19 +11,19 @@
             <use href="#x-mark"></use>
         </svg>
     </div>
-    <form class="flex flex-col space-y-3 font-PoppinsMedium">
-        <input type="text" placeholder="Title" class="block w-full p-4 rounded-lg border border-gray-300 text-zinc-700 outline-none">
-        <input type="text" placeholder="Price" class="block w-full p-4 rounded-lg border border-gray-300 text-zinc-700 outline-none">
-        <input type="text" placeholder="Description" class="block w-full p-4 rounded-lg border border-gray-300 text-zinc-700 outline-none">
-        <select class="block w-full p-4 rounded-lg border border-gray-300 text-zinc-700">
-            <option value="" selected>Electronics</option>
-            <option value="">Jewelery</option>
-            <option value="">Men's clothing</option>
-            <option value="">Women's clothing</option>
+    <form class="flex flex-col space-y-3 font-PoppinsMedium" [formGroup]="productForm">
+        <input type="text" placeholder="Title" class="block w-full p-4 rounded-lg border border-gray-300 text-zinc-700 outline-none" formControlName="title">
+        <input type="text" placeholder="Price" class="block w-full p-4 rounded-lg border border-gray-300 text-zinc-700 outline-none" formControlName="price">
+        <input type="text" placeholder="Description" class="block w-full p-4 rounded-lg border border-gray-300 text-zinc-700 outline-none" formControlName="description">
+        <select class="block w-full p-4 rounded-lg border border-gray-300 text-zinc-700 outline-none" formControlName="category">
+            <option value="electronics">Electronics</option>
+            <option value="jewelery">Jewelery</option>
+            <option value="men's clothing">Men's clothing</option>
+            <option value="women's clothing">Women's clothing</option>
         </select>
-        <input type="text" placeholder="ImageUrl" class="block w-full p-4 rounded-lg border border-gray-300 text-zinc-700 outline-none">
+        <input type="text" placeholder="ImageUrl : https://example.com" class="block w-full p-4 rounded-lg border border-gray-300 text-zinc-700 outline-none" formControlName="image">
         <div class="flex gap-x-2">
-            <button class="px-7 py-3 bg-teal-600 hover:bg-teal-700 rounded-md text-white transition-all">Submit</button>
+            <button type="submit" class="px-7 py-3 bg-teal-600 hover:bg-teal-700 rounded-md text-white transition-all disabled:bg-gray-300" (click)="onSubmit()" [disabled]="productForm.invalid">Submit</button>
             <span class="cursor-pointer px-7 py-3 bg-red-600 hover:bg-red-700 rounded-md text-white transition-all" (click)="onCancel()">Cancel</span>
         </div>
     </form>

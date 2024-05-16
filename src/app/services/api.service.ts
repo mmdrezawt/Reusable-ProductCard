@@ -8,6 +8,8 @@ import { ProductList } from '../model/product.model';
 export class ApiService {
 
   private baseUrl = 'https://fakestoreapi.com/products';
+  private addItem!: ProductList;
+  private editItem!: ProductList;
 
   constructor(private http: HttpClient) { 
   }
@@ -16,11 +18,23 @@ export class ApiService {
     return this.http.get(this.baseUrl);
   }
 
-  addItem(item: ProductList) {
+  addItemForForm(item: ProductList) {
+    this.addItem = item;
+  }
+  addItemForProduct() {
     // return this.http.post(this.baseUrl, item);
+    return this.addItem;
+  }
+
+  editItemForForm(item: ProductList) {
+    this.editItem = item;
+  }
+  editItemForProduct() {
+    // return this.http.post(this.baseUrl, item);
+    return this.editItem;
   }
 
   deleteItemById(id: number) {
-    // return this.http.delete(this.baseUrl, id);
+    // return this.http.delete(this.baseUrl + "/{{ id }}");
   }
 }

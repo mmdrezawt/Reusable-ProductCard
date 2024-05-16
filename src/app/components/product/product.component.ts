@@ -25,14 +25,25 @@ export class ProductComponent implements OnInit {
     this.dialog.open(FormComponent, {
       width: '500px',
       height: '500px',
-    });
+    })
+    .afterClosed().subscribe(response => {
+      if(response == "submit")
+        this.productList.push(this.api.addItemForProduct());
+    }
+    )
   }
 
   onEditClick(e: ProductList) {
     this.dialog.open(FormComponent, {
       width: '500px',
       height: '500px',
-    });
+      data: e
+    }).afterClosed().subscribe(response => {
+      if(response == "submit") {
+        let index = this.productList.findIndex(item => item.id == this.api.editItemForProduct().id);
+        this.productList[index] = this.api.editItemForProduct();
+      }
+    })
   }
 
   onDeleteClick(e: ProductList) {

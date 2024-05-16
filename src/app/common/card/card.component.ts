@@ -8,7 +8,7 @@ import { ProductList } from 'src/app/model/product.model';
 })
 export class CardComponent {
 
-  @Input() itemList: ProductList[] = [];
+  @Input() itemList!: ProductList[] | never;
   @Output() addClicked = new EventEmitter<any>;
   @Output() editClicked = new EventEmitter<any>;
   @Output() deleteClicked = new EventEmitter<any>;
