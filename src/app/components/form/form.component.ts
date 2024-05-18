@@ -11,10 +11,11 @@ import { ProductList } from 'src/app/model/product.model';
 })
 export class FormComponent implements OnInit {
 
+  formTitle: string = 'Add a new product';
   productForm!: FormGroup;
   id: number = 20; // Array Length
 
-  constructor(public dialogRef: MatDialogRef<FormComponent>, private fb:FormBuilder, private api: ApiService, @Inject(MAT_DIALOG_DATA) public data: ProductList,) {
+  constructor(public dialogRef: MatDialogRef<FormComponent>, private fb:FormBuilder, private api: ApiService, @Inject(MAT_DIALOG_DATA) public data: ProductList) {
   }
   ngOnInit(): void {
     this.productForm = this.fb.group({
@@ -25,11 +26,12 @@ export class FormComponent implements OnInit {
       image: ['', [Validators.required, Validators.pattern("https://.*")]]
     })
     if(this.data) {
-      this.productForm.controls['title'].setValue(this.data.title),
-      this.productForm.controls['price'].setValue(this.data.price),
-      this.productForm.controls['description'].setValue(this.data.description),
-      this.productForm.controls['category'].setValue(this.data.category),
-      this.productForm.controls['image'].setValue(this.data.image)
+      this.formTitle = 'Edit product';
+      this.productForm.controls['title'].setValue(this.data.title);
+      this.productForm.controls['price'].setValue(this.data.price);
+      this.productForm.controls['description'].setValue(this.data.description);
+      this.productForm.controls['category'].setValue(this.data.category);
+      this.productForm.controls['image'].setValue(this.data.image);
     }
   }
 
@@ -63,7 +65,7 @@ export class FormComponent implements OnInit {
           count: this.data.rating.count,
         }
       }
-      this.api.editItemForForm(editObj)
+      this.api.editItemForForm(editObj);
     }
     this.dialogRef.close('submit');
   }

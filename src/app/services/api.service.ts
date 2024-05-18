@@ -30,7 +30,7 @@ export class ApiService {
     this.editItem = item;
   }
   editItemForProduct() {
-    // return this.http.post(this.baseUrl, item);
+    // return this.http.put(this.baseUrl, item);
     return this.editItem;
   }
 

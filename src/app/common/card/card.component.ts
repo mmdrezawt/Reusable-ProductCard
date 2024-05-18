@@ -8,6 +8,7 @@ import { ProductList } from 'src/app/model/product.model';
 })
 export class CardComponent {
 
+  Math: Math = Math;
   @Input() itemList!: ProductList[] | never;
   @Output() addClicked = new EventEmitter<any>;
   @Output() editClicked = new EventEmitter<any>;

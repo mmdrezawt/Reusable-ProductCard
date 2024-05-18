@@ -6,7 +6,7 @@
 
 <div class="px-8 py-6">
     <div class="flex justify-between items-center mb-4">
-        <h3 class="font-PoppinsMedium text-xl">Add a new product</h3>
+        <h3 class="font-PoppinsMedium text-xl">{{ formTitle }}</h3>
         <svg class="w-5 h-5 cursor-pointer" (click)="onCancel()">
             <use href="#x-mark"></use>
         </svg>
@@ -23,8 +23,8 @@
         </select>
         <input type="text" placeholder="ImageUrl : https://example.com" class="block w-full p-4 rounded-lg border border-gray-300 text-zinc-700 outline-none" formControlName="image">
         <div class="flex gap-x-2">
-            <button type="submit" class="px-7 py-3 bg-teal-600 hover:bg-teal-700 rounded-md text-white transition-all disabled:bg-gray-300" (click)="onSubmit()" [disabled]="productForm.invalid">Submit</button>
-            <span class="cursor-pointer px-7 py-3 bg-red-600 hover:bg-red-700 rounded-md text-white transition-all" (click)="onCancel()">Cancel</span>
+            <button type="submit" class="px-7 py-3 bg-teal-600 hover:bg-teal-700 rounded-md text-white transition-all disabled:bg-gray-300 outline-none" (click)="onSubmit()" [disabled]="productForm.invalid">Submit</button>
+            <span class="cursor-pointer px-7 py-3 bg-red-600 hover:bg-red-700 rounded-md text-white transition-all outline-none" (click)="onCancel()">Cancel</span>
         </div>
     </form>
 </div>
