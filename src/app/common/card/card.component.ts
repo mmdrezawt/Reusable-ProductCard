@@ -10,9 +10,12 @@ export class CardComponent {
 
   Math: Math = Math;
   @Input() itemList!: ProductList[] | never;
+  @Input() adminType: boolean = true;
   @Output() addClicked = new EventEmitter<any>;
   @Output() editClicked = new EventEmitter<any>;
   @Output() deleteClicked = new EventEmitter<any>;
+  @Output() addToBasketClicked = new EventEmitter<any>;
+  @Output() compareClicked = new EventEmitter<any>;
 
   onAddClick() {
     this.addClicked.emit();
@@ -22,6 +25,12 @@ export class CardComponent {
   }
   onDeleteClick(item: ProductList) {
     this.deleteClicked.emit(item);
+  }
+  onAddToBasketClick(item: ProductList) {
+    this.addToBasketClicked.emit(item);
+  }
+  onCompareClick(item: ProductList) {
+    this.compareClicked.emit(item);
   }
 
 }
