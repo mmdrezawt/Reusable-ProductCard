@@ -19,43 +19,43 @@
     </symbol>                                 
 </svg>
 
-<div class="container py-10 grid grid-cols-4 gap-5">
+<div class="container py-10 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-5">
     <div *ngFor="let item of itemList">
-        <div class="bg-white p-5 shadow-normal rounded-2xl">
+        <div class="bg-white p-3 md:p-5 shadow-normal rounded-2xl">
             <div class="mb-5">
-                <img src="{{ item.image }}" alt="{{ item.title }}" class="w-[260px] h-[260px] mx-auto" loading="lazy">
+                <img src="{{ item.image }}" alt="{{ item.title }}" class="w-28 h-28 sm:w-32 sm:h-32 md:w-[260px] md:h-[260px] mx-auto" loading="lazy">
             </div>
-            <h4 class="text-zinc-700 text-xl line-clamp-2 font-PoppinsMedium mb-2.5 min-h-14">{{ item.title }}</h4>
-            <span class="inline-block text-teal-600 font-PoppinsSemiBold text-2xl mb-4">
+            <h4 class="text-zinc-700 text-sm md:text-xl line-clamp-2 font-PoppinsMedium mb-2.5 min-h-14">{{ item.title }}</h4>
+            <span class="inline-block text-teal-600 font-PoppinsSemiBold text-xs md:text-2xl mb-4">
                 {{ item.price | currency }}
             </span>
             <div class="flex justify-between items-center">
                 <div *ngIf="adminType;" class="flex gap-x-3">
-                    <button class="bg-gray-100 hover:bg-amber-600 w-9 h-9 rounded-full flex justify-center items-center group transition-all" (click)="onEditClick(item)">
-                        <svg class="text-gray-400 group-hover:text-white transition-all w-[22px] h-[22px]">
+                    <button class="bg-gray-100 hover:bg-amber-600 w-6 h-6 md:w-9 md:h-9 rounded-full flex justify-center items-center group transition-all" (click)="onEditClick(item)">
+                        <svg class="text-gray-400 group-hover:text-white transition-all w-4 h-4 md:w-[22px] md:h-[22px]">
                             <use href="#pencil-square"></use>
                         </svg>
                     </button>
-                    <button class="bg-gray-100 hover:bg-red-600 w-9 h-9 rounded-full flex justify-center items-center group transition-all" (click)="onDeleteClick(item)">
-                        <svg class="text-gray-400 group-hover:text-white transition-all w-[22px] h-[22px]">
+                    <button class="bg-gray-100 hover:bg-red-600 w-6 h-6 md:w-9 md:h-9 rounded-full flex justify-center items-center group transition-all" (click)="onDeleteClick(item)">
+                        <svg class="text-gray-400 group-hover:text-white transition-all w-4 h-4 md:w-[22px] md:h-[22px]">
                             <use href="#trash"></use>
                         </svg>
                     </button>
                 </div>
-                <div *ngIf="!adminType;" class="flex gap-x-3">
-                    <button class="bg-gray-100 hover:bg-teal-600 w-9 h-9 rounded-full flex justify-center items-center group transition-all" (click)="onCompareClick(item)">
-                        <svg class="text-gray-400 group-hover:text-white transition-all w-[22px] h-[22px]">
+                <div *ngIf="!adminType;" class="flex gap-x-2 lg:gap-x-3">
+                    <button class="bg-gray-100 hover:bg-teal-600 w-6 h-6 md:w-9 md:h-9 rounded-full flex justify-center items-center group transition-all" (click)="onCompareClick(item)">
+                        <svg class="text-gray-400 group-hover:text-white transition-all w-4 h-4 md:w-[22px] md:h-[22px]">
                             <use href="#shopping-cart"></use>
                         </svg>
                     </button>
-                    <button class="w-9 h-9 rounded-full flex justify-center items-center group transition-all" (click)="onAddToBasketClick(item)">
-                        <svg class="text-gray-400 group-hover:text-teal-600 transition-all w-[22px] h-[22px]">
+                    <button class="rounded-full flex justify-center items-center group transition-all" (click)="onAddToBasketClick(item)">
+                        <svg class="text-gray-400 group-hover:text-teal-600 transition-all w-4 h-4 md:w-[22px] md:h-[22px]">
                             <use href="#arrow-left-right"></use>
                         </svg>
                     </button>
                 </div>
                 <div class="flex">
-                    <svg class="w-6 h-6" *ngFor="let id of [].constructor(5);let i = index" [ngClass]="Math.round(item.rating.rate) > (4-i) ? 'text-yellow-400' : 'text-gray-300'">
+                    <svg class="w-4 h-4 md:w-6 md:h-6" *ngFor="let id of [].constructor(5);let i = index" [ngClass]="Math.round(item.rating.rate) > (4-i) ? 'text-yellow-400' : 'text-gray-300'">
                         <use href="#star"></use>
                     </svg>
                 </div>
