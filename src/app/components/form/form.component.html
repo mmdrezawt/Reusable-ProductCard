@@ -4,14 +4,14 @@
     </symbol>      
 </svg>
 
-<div class="px-8 py-6">
+<div class="px-8 pt-10 md:pt-6">
     <div class="flex justify-between items-center mb-4">
-        <h3 class="font-PoppinsMedium text-xl">{{ formTitle }}</h3>
-        <svg class="w-5 h-5 cursor-pointer" (click)="onCancel()">
+        <h3 class="font-PoppinsMedium text-base md:text-xl">{{ formTitle }}</h3>
+        <svg class="w-4 h-4 md:w-5 md:h-5 cursor-pointer" (click)="onCancel()">
             <use href="#x-mark"></use>
         </svg>
     </div>
-    <form class="flex flex-col space-y-3 font-PoppinsMedium" [formGroup]="productForm">
+    <form class="flex flex-col space-y-3 font-PoppinsMedium text-sm md:text-base" [formGroup]="productForm">
         <input type="text" placeholder="Title" class="block w-full p-4 rounded-lg border border-gray-300 text-zinc-700 outline-none" formControlName="title">
         <input type="text" placeholder="Price" class="block w-full p-4 rounded-lg border border-gray-300 text-zinc-700 outline-none" formControlName="price">
         <input type="text" placeholder="Description" class="block w-full p-4 rounded-lg border border-gray-300 text-zinc-700 outline-none" formControlName="description">
